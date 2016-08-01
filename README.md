@@ -3,7 +3,7 @@ ansible-role-ssl-certs
 
 Generate and/or deploy SSL certificate
 
-Available on Ansible Galaxy: [jdauphant.ssl-certs](https://galaxy.ansible.com/list#/roles/3115)
+Available on Ansible Galaxy: [LIP-Computing.ssl-certs](https://galaxy.ansible.com/LIP-Computing/ssl-certs/)
 
 # Examples
 
@@ -12,7 +12,7 @@ Available on Ansible Galaxy: [jdauphant.ssl-certs](https://galaxy.ansible.com/li
 ```YAML
  - hosts: all
    roles:
-     - jdauphant.ssl-certs
+     - LIP-Computing.ssl-certs
 ```
 
 This will create certificate and private key in:
@@ -25,7 +25,7 @@ This will create certificate and private key in:
 ```YAML
  - hosts: all
    roles:
-    - role: jdauphant.ssl-certs
+    - role: LIP-Computing.ssl-certs
       ssl_certs_common_name: "example.com"
 ```
 
@@ -39,7 +39,7 @@ they don't exist, they will be generated as a **self-signed** certificate at
 ```YAML
  - hosts: all
    roles:
-    - role: jdauphant.ssl-certs
+    - role: LIP-Computing.ssl-certs
       ssl_certs_local_privkey_path: '/path/to/example.com.key'
       ssl_certs_local_cert_path: '/path/to/example.com.pem'
 ```
@@ -74,7 +74,7 @@ Then simply include the role as in the first example.
 ```YAML
  - hosts: all
    roles:
-     - jdauphant.ssl-certs
+     - LIP-Computing.ssl-certs
        ssl_certs_generate_dh_param: true
      - role: jdauphant.nginx
        nginx_configs:
