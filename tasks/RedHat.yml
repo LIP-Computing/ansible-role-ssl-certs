@@ -1,0 +1,5 @@
+---
+  - name: Ensure OpenSSL is installed - Centos7
+    yum: name=openssl state=present
+    when: ansible_os_family == "RedHat"
+    tags: [ssl-certs,packages]

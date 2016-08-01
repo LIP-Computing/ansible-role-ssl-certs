@@ -1,0 +1,5 @@
+---
+  - name: Ensure OpenSSL is installed - Debian
+    apt: name=openssl state=present
+    when: ansible_os_family == "Debian"
+    tags: [ssl-certs,packages]
