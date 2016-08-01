@@ -18,3 +18,8 @@
   - name: Self-signed SSL certificate file ownership
     file: path={{ ssl_certs_cert_path }} owner={{ ssl_certs_path_owner }} group={{ ssl_certs_path_group }} mode={{ ssl_certs_mode }}
     when: ssl_certs_generate_self_signed
+
+  - name: Merge cert and priv key into the same file
+    shell: "cat {{ ssl_certs_cert_path }} {{ ssl_certs_privkey_path }} >> {{ ssl_certs_pub_priv_path }}"
+    args:
+      executable: /bin/bash
