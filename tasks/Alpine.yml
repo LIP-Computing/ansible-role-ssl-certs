@@ -1,0 +1,5 @@
+---
+  - name: Ensure OpenSSL is installed - Alpine 
+    apk: name=openssl state=present
+    when: ansible_os_family == "Alpine"
+    tags: [ssl-certs,packages]
