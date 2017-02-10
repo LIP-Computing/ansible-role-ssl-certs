@@ -31,7 +31,7 @@ Two examples of playbooks are shown below:
       ssl_certs_common_name: "example.com"
 ```
 
-```
+```YAML
  - hosts: all
    roles:
     - role: LIP-Computing.ssl-certs
@@ -42,6 +42,7 @@ Two examples of playbooks are shown below:
       ssl_certs_state: "Lisbon"
       ssl_certs_path_owner: "root"
       ssl_certs_path_group: "root"
+      ssl_certs_generate_dh_param: true
 ```
 
 The certificate has to be placed in `files/ssl/example.com.key` and `files/ssl/example.com.pem`. If
