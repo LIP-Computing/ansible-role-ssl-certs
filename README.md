@@ -22,11 +22,26 @@ This will create certificate and private key in:
 
 ## Example to deploy a SSL certificate
 
+Two examples of playbooks are shown below: 
+
 ```YAML
  - hosts: all
    roles:
     - role: LIP-Computing.ssl-certs
       ssl_certs_common_name: "example.com"
+```
+
+```
+ - hosts: all
+   roles:
+    - role: LIP-Computing.ssl-certs
+      ssl_certs_common_name: "myhost.mydomain"
+      ssl_certs_country: "PT"
+      ssl_certs_locality: "Lisbon"
+      ssl_certs_organization: "LIP"
+      ssl_certs_state: "Lisbon"
+      ssl_certs_path_owner: "root"
+      ssl_certs_path_group: "root"
 ```
 
 The certificate has to be placed in `files/ssl/example.com.key` and `files/ssl/example.com.pem`. If
