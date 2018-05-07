@@ -65,6 +65,11 @@
     no_log: true
     tags: [ssl-certs,configuration]
 
+  - name: Merge cert and priv key into the same file
+    shell: "cat {{ ssl_certs_cert_path }} {{ ssl_certs_privkey_path }} >> {{ ssl_certs_pub_priv_path }}"
+    args:
+      executable: /bin/bash
+
   - name: Generate strong DHE parameter - https://weakdh.org/
     command: openssl dhparam -out {{ssl_certs_dhparam_path}} {{ssl_certs_dhparam_size}} creates={{ssl_certs_dhparam_path}}
     when: ssl_certs_generate_dh_param
